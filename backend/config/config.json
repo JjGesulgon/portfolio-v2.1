@@ -1,0 +1,41 @@
+{
+  "development": {
+    "username": "homestead",
+    "password": "secret",
+    "database": "personal_website",
+    "host": "192.168.10.10",
+    "dialect": "mysql",
+    "pool": {
+      "max": 5,
+      "min": 0,
+      "acquire": 30000,
+      "idle": 10000
+    }
+  },
+  "test": {
+    "username": "homestead",
+    "password": "secret",
+    "database": "personal_website",
+    "host": "192.168.10.10",
+    "dialect": "mysql",
+    "pool": {
+      "max": 5,
+      "min": 0,
+      "acquire": 30000,
+      "idle": 10000
+    }
+  },
+  "production": {
+    "username": "homestead",
+    "password": "secret",
+    "database": "personal_website",
+    "host": "192.168.10.10",
+    "dialect": "mysql",
+    "pool": {
+      "max": 5,
+      "min": 0,
+      "acquire": 30000,
+      "idle": 10000
+    }
+  }
+}
