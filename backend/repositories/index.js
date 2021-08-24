@@ -9,10 +9,8 @@ class Repository {
   }
 
   // Find all items in the table with search functionality
-  findAll(req, res, attrib, model) {
+  async findAll(req, res, attrib, model) {
     const query = []; // array [attributes, <search value>]
-    let limit = 5;   // number of records per page
-    let offset = 0; // starting record
 
     for (const [key, value] of Object.entries(model.rawAttributes)) {
       query.push({
@@ -22,7 +20,7 @@ class Repository {
       })
     }
 
-    model.findAll({
+    await model.findAll({
       attributes: attrib,
       where: {
         [Op.or]: query
@@ -38,23 +36,9 @@ class Repository {
       });
     });
   }
-  
-  // Find the first record in the table
-  findFirst(attrib, res, model) {
-    model.findAll({limit: 1, attributes: attrib, order: [[ 'created_at', 'DESC']]})
-      .then(data => {
-        res.send(data);
-      })
-      .catch(err => {
-        res.status(500).send({
-          message:
-            err.message || "Some error occurred while retrieving data."
-        });
-      });
-  }
 
   // Find all items in the table with pagination & search functionality
-  findAllWithPagination(req, res, fields, model){
+  async findAllWithPagination(req, res, fields, model){
     const query = []; // array [attributes, <search value>]
     let limit = 5;   // number of records per page
     let offset = 0; // starting record
@@ -68,7 +52,7 @@ class Repository {
       })
     }
 
-    model.findAndCountAll()
+    await model.findAndCountAll()
     .then((data) => {
       let page = req.query.page;
       let pages = Math.ceil(data.count/limit);
@@ -97,6 +81,36 @@ class Repository {
         });
       });
     })
+  }
+
+  // Find the first record in the table
+  async findFirst(attrib, res, model) {
+    await model.findAll({limit: 1, attributes: attrib, order: [[ 'created_at', 'DESC']]})
+      .then(data => {
+        res.send(data);
+      })
+      .catch(err => {
+        res.status(500).send({
+          message:
+            err.message || "Some error occurred while retrieving data."
+        });
+      });
+  }
+
+  async findOneByID(req, res, fields, model){
+    await model.findByPk(req.body.id, {
+      attributes: fields.attributes,
+      include: fields.association,
+    })
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving data."
+      });
+    });
   }
 }
 

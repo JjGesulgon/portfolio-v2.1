@@ -9,5 +9,7 @@ module.exports = app => {
   // Retrieve all Passions
   router.post("/", projectController.index);
 
+  router.post("/get-by-id", projectController.getByID);
+
   app.use('/api/projects', router);
 };
