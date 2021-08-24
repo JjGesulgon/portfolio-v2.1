@@ -97,6 +97,7 @@ class Repository {
       });
   }
 
+  // Search record by ID
   async findOneByID(req, res, fields, model){
     await model.findByPk(req.body.id, {
       attributes: fields.attributes,
