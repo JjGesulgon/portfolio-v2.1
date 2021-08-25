@@ -18,6 +18,8 @@ app.use(express.urlencoded({ extended: true }));
 const db = require("./models");
 db.sequelize.sync();
 
+require('dotenv').config({path: __dirname + '/.env'})
+
 // Drop tables and re-sync db
 // db.sequelize.sync({ force: true }).then(() => {
 //   console.log("Drop and re-sync db.");
@@ -35,6 +37,8 @@ require("./routes/techStackContent.routes")(app);
 require("./routes/techStackItem.routes")(app);
 require("./routes/contact.routes")(app);
 require("./routes/project.routes")(app);
+require("./routes/blog.routes")(app);
+require("./routes/email.routes")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
