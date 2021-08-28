@@ -28,14 +28,12 @@ class Repository {
     })
     .then(data => {
       res.send(data);
-      next();
     })
     .catch(err => {
       res.status(500).send({
         message:
           err.message || "Some error occurred while retrieving data."
       });
-      next(err);
     });
   }
 
@@ -74,15 +72,13 @@ class Repository {
           'data': data,
           'count': data.count,
           'pages': pages
-        });
-        next();
+        });        
       })
       .catch(err => {
         res.status(500).send({
           message:
             err.message || "Some error occurred while retrieving data."
         });
-        next(err);
       });
     })
   }
@@ -92,14 +88,12 @@ class Repository {
     await model.findAll({limit: 1, attributes: attrib, order: [[ 'created_at', 'DESC']]})
       .then(data => {
         res.send(data);
-        next();
       })
       .catch(err => {
         res.status(500).send({
           message:
             err.message || "Some error occurred while retrieving data."
         });
-        next(err);
       });
   }
 
@@ -111,14 +105,12 @@ class Repository {
     })
     .then(data => {
       res.send(data);
-      next();
     })
     .catch(err => {
       res.status(500).send({
         message:
           err.message || "Some error occurred while retrieving data."
       });
-      next(err);
     });
   }
 }
