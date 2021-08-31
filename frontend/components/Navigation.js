@@ -7,7 +7,6 @@ function Navigation() {
     setActive(!active);
   };
 
-  //Test
   return (
     <div>
       <nav className='flex items-center flex-wrap bg-blue-500 p-3 '>
