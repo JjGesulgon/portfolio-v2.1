@@ -4,6 +4,7 @@ module.exports = {
   theme: {
     fontFamily: {
       'raleway': ['raleway', 'sans-serif'],
+      'work-sans': ['work sans', 'sans-serif'],
     },
     extend: {},
   },

@@ -1,18 +1,38 @@
-import Head from 'next/head';
-import { Navbar } from '../components/Navbar';
+import Image from 'next/image'
 
 export default function HomePage() {
   return (
-    <div>
-      <Head>
-        <title>Jeysqrd</title>
-        <link rel='icon' href='/favicon.ico' />
-        <link rel="preconnect" href="https://fonts.googleapis.com"/>
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-        <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"/>
-      </Head>
-      {/* <Navbar /> */}
-      <div>Hello World Test</div>
+    <div className="grid grid-flow-col md:gap-4 lg:gap-2 md:ml-8 -mt-10">
+      <div className="flex flex-col-reverse flex-wrap row-span-1 lg:mt-20">
+        <div className="pl-8 md:pl-auto lg:mt-48 mt-20 pr:5 lg:pr-20 font-work-sans font-light text-gray-700">
+          <div className="text-6xl lg:text-8xl">
+            JJ GESULGON
+          </div>
+          <div className="text-4xl">
+            Software Developer
+          </div>
+          <div>
+            <button class="bg-transparent 
+                          hover:bg-blue-500 
+                          text-blue-700 
+                          font-semibold 
+                          hover:text-white 
+                          mt-2
+                          py-2 
+                          px-4 
+                          border 
+                          border-blue-500 
+                          hover:border-transparent 
+                          rounded 
+                          focus:outline-none">
+              Contact Me
+            </button>
+          </div>
+        </div>
+      </div>
+      <div className="invisible xl:visible lg:row-span-3">
+        <img src="/assets/undraw_Lost_online.svg" className="image-transition h-auto w-full pl-3" alt="book lover"/>
+      </div>
     </div>
   );
 }
