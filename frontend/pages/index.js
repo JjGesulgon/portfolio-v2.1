@@ -1,7 +1,10 @@
 import Image from 'next/image';
+import { useRouter } from "next/router";
 import AboutMe from '../components/about-me/AboutMe';
 
 export default function HomePage() {
+  const router = useRouter()
+
   return (
     <div>
       <div className="grid grid-flow-col md:gap-4 lg:gap-2 md:ml-8 -mt-10 overflow-hidden">
@@ -26,7 +29,8 @@ export default function HomePage() {
                             border-blue-500 
                             hover:border-transparent 
                             rounded 
-                            focus:outline-none">
+                            focus:outline-none"
+                            onClick={() => router.push('/contact-me')}>
                 Contact Me
               </button>
             </div>
