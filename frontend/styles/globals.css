@@ -3,6 +3,82 @@
 @tailwind components;
 @tailwind utilities;
 
+.onScrollColor {
+  -moz-transition: all .2s ease-in;
+  -o-transition: all .2s ease-in;
+  -webkit-transition: all .2s ease-in;
+  transition: all .2s ease-in;
+  opacity: 90%;
+  background-color: white !important;
+}
+
+.slide-to-left {
+  position: relative;
+  right: -1900px;
+  -webkit-animation: slide-to-left 0.5s forwards;
+  -webkit-animation-delay: 2s;
+  animation: slide-to-left 0.5s forwards;
+  animation-delay: 2s;
+}
+
+@-webkit-keyframes slide-to-left {
+  100% { right: 0; }
+}
+
+@keyframes slide-to-left {
+  100% { right: 0; }
+}
+
+.slide-to-right {
+  position: relative;
+  left: -1900px;
+  -webkit-animation: slide-to-right 0.5s forwards;
+  -webkit-animation-delay: 1.5s;
+  animation: slide-to-right 0.5s forwards;
+  animation-delay: 1.5s;
+}
+
+@-webkit-keyframes slide-to-right {
+  100% { left: 0; }
+}
+
+@keyframes slide-to-right {
+  100% { left: 0; }
+}
+
+
+.fade-in-image {
+  animation: fadeIn 5s;
+  -webkit-animation: fadeIn 5s;
+  -moz-animation: fadeIn 5s;
+  -o-animation: fadeIn 5s;
+  -ms-animation: fadeIn 5s;
+}
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-moz-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-o-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-ms-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
 /* html,
 body {
   padding: 0;
