@@ -85,6 +85,8 @@ class Repository {
 
   // Find the first record in the table
   async findFirst(attrib, res, model) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
     await model.findAll({limit: 1, attributes: attrib, order: [[ 'created_at', 'DESC']]})
       .then(data => {
         res.send(data);
