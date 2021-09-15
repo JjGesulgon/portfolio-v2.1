@@ -18,8 +18,10 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     experience: DataTypes.STRING,
     proficiency: DataTypes.DECIMAL,
+    icon_link: DataTypes.STRING,
     created_at: DataTypes.DATE,
-    updated_at: DataTypes.DATE
+    updated_at: DataTypes.DATE,
+    deleted_at: DataTypes.DATE,
   }, {
     sequelize,
     modelName: 'techStackItem',

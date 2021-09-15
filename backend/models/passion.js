@@ -16,7 +16,8 @@ module.exports = (sequelize, DataTypes) => {
   Passion.init({
     name: DataTypes.STRING,
     description: DataTypes.STRING,
-    image: DataTypes.STRING
+    image: DataTypes.STRING,
+    deleted_at: DataTypes.DATE,
   }, {
     sequelize,
     modelName: 'passion',

@@ -1,11 +1,13 @@
 import Image from 'next/image';
 import { useRouter } from "next/router";
 import AboutMe from '../components/about-me/AboutMe';
-import TechStack from '../components/tech-stack/TechStack';
+import TechStackContent from '../components/tech-stack/TechStackContent';
+import TechStackItems from '../components/tech-stack/TechStackItems';
 
 export default function HomePage({data}) {
   const aboutMe = data[0][0];
   const techStackContent = data[1][0];
+  const techStackItems = data[2];
 
   const router = useRouter();
 
@@ -49,16 +51,30 @@ export default function HomePage({data}) {
       <AboutMe aboutMe={aboutMe}/>
       <br></br>
       <br></br>
-      <TechStack techStack={techStackContent}/>
+      <TechStackContent techStackContent={techStackContent}/>
+      <br></br>
+      <br></br>
+      <TechStackItems techStackItems={techStackItems}/>
+      <br></br>
+      <br></br>
     </div>
   );
 }
 
 export const getStaticProps = async () => {
-  const aboutMeQuery = fetch(`http://localhost:8080/api/about-me`);
-  const techStackContentQuery = fetch(`http://localhost:8080/api/tech-stack-content`);
+  const aboutMeQuery = fetch(`${process.env.baseURL}/api/about-me`);
+  const techStackContentQuery = fetch(`${process.env.baseURL}/api/tech-stack-content`);
+  const techStackQuery = fetch(`${process.env.baseURL}/api/tech-stack-items`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      "search": ""
+    })
+  });
 
-  const responses = await Promise.all([(await aboutMeQuery).json(), (await techStackContentQuery).json()])
+  const responses = await Promise.all([(await aboutMeQuery).json(), (await techStackContentQuery).json(), (await techStackQuery).json()])
 
   return {
     props: {

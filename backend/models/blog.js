@@ -21,7 +21,8 @@ module.exports = (sequelize, DataTypes) => {
     content: DataTypes.TEXT,
     published_at: DataTypes.DATE,
     header_image: DataTypes.STRING,
-    slug: DataTypes.STRING
+    slug: DataTypes.STRING,
+    deleted_at: DataTypes.DATE,
   }, {
     sequelize,
     modelName: 'blog',

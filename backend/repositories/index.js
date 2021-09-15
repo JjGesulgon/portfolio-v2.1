@@ -23,7 +23,8 @@ class Repository {
     await model.findAll({
       attributes: attrib,
       where: {
-        [Op.or]: query
+        [Op.or]: query,
+        deleted_at: null
       }
     })
     .then(data => {
@@ -64,7 +65,8 @@ class Repository {
         attributes: fields.attributes,
         include: fields.association,
         where: {
-          [Op.or]: query
+          [Op.or]: query,
+          deleted_at: null
         }
       })
       .then(data => {

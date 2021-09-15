@@ -10,7 +10,7 @@ class TechStackItemRepository extends repository {
   }
 
   getAll(req, res) {
-    new TechStackItemRepository().findAll(req, res, ['name', 'experience', 'proficiency'], techStackItem);
+    new TechStackItemRepository().findAll(req, res, ['name', 'experience', 'proficiency', 'icon_link'], techStackItem);
   }
 }
 

@@ -30,7 +30,8 @@ module.exports = (sequelize, DataTypes) => {
     live: DataTypes.STRING,
     industry: DataTypes.STRING,
     slug: DataTypes.STRING,
-    reason_if_unavailable: DataTypes.STRING
+    reason_if_unavailable: DataTypes.STRING,
+    deleted_at: DataTypes.DATE,
   }, {
     sequelize,
     modelName: 'project',
