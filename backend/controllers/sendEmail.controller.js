@@ -20,7 +20,10 @@ exports.sendEmail = (req, res, next) => {
     });
   })
   .then(() => {
-    res.json({message: 'Your email has been sent'});
+    res.json({
+      message: 'Your email has been sent',
+      success: true,
+    });
       next();
   })
   .catch(err => {

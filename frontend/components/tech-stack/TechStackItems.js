@@ -19,7 +19,7 @@ function TechStack({ techStackItems }) {
        const { id, name, experience, proficiency, icon_link } = techStackItem //destructuring
        
        return (
-        <tr className="border-b border-gray-200 hover:bg-gray-100" key={id}>
+        <tr className="border-b border-gray-200 hover:bg-gray-100" key={index}>
           <td className="py-3 px-6 text-left whitespace-nowrap">
             <div className="flex items-center">
               <div className="mr-6">
