@@ -1,6 +1,7 @@
 import '../styles/globals.css'
 import Layout from '../components/layout/Layout';
 import Head from 'next/head';
+import { AnimatePresence } from "framer-motion";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -15,8 +16,8 @@ function MyApp({ Component, pageProps }) {
         <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
       </Head>
       <Layout>
-       <Component {...pageProps} />
-     </Layout>
+        <Component {...pageProps} />
+      </Layout>
     </div>
   );
 }

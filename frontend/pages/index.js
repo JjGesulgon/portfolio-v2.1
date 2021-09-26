@@ -5,6 +5,7 @@ import TechStackContent from '../components/tech-stack/TechStackContent';
 import TechStackItems from '../components/tech-stack/TechStackItems';
 
 export default function HomePage({data}) {
+
   const aboutMe = data[0][0];
   const techStackContent = data[1][0];
   const techStackItems = data[2];
@@ -59,7 +60,7 @@ export default function HomePage({data}) {
       <br></br>
     </div>
   );
-}
+};
 
 export const getStaticProps = async () => {
   const aboutMeQuery = fetch(`${process.env.baseURL}/api/about-me`);
