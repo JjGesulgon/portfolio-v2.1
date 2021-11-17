@@ -3,6 +3,14 @@
 @tailwind components;
 @tailwind utilities;
 
+.web-background {
+  background-color: #e5e5f7;
+  /* opacity: 0.2; */
+  background-image: radial-gradient( ellipse farthest-corner at 4px 4px , #484848, #484848 50%, #e5e5f7 50%);
+  background-size: 4px 4px;
+}
+
+
 .onScrollColor {
   -moz-transition: all .2s ease-in;
   -o-transition: all .2s ease-in;

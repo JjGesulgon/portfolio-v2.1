@@ -88,7 +88,7 @@ export default function ContactMePage({data}) {
       </div>
       <div className="flex flex-wrap row-span-1 col-span-3 justify-center mb-10 lg:mb-0">
         <form onSubmit={sendEmail} className='mx-2 md:mx-10 xl:ml-56 xl:mr-32 lg:mt-40' >
-          <input className="shadow appearance-none border rounded w-full py-2 px-3 border-blue-500 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-10" id="subject" name="subject" type="text" placeholder="Subject"/>
+          <input className="appearance-none border rounded w-full py-2 px-3 border-blue-500 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-10" id="subject" name="subject" type="text" placeholder="Subject"/>
           <textarea id="message" name="message" rows="10" cols="50" placeholder="Message" className='mt-8 w-full p-4 border-solid border border-blue-500 rounded-lg font-work-sans outline-none'></textarea>
           <button className="bg-blue-500
                             hover:bg-transparent 

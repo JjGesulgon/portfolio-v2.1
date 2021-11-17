@@ -14,7 +14,7 @@ export default function HomePage({data}) {
 
   return (
     <div>
-      <div className="grid grid-flow-col md:gap-4 lg:gap-2 md:ml-8 -mt-10 overflow-hidden mb-96 md:mb-0 xl:mb-0">
+      <div className="opacity-100 grid grid-flow-col md:gap-4 lg:gap-2 md:ml-8 -mt-10 overflow-hidden mb-96 md:mb-0 xl:mb-0">
         <div className="flex flex-col-reverse flex-wrap row-span-1 xl:mt-20">
           <div className="pl-8 md:pl-auto lg:mt-48 mt-20 pr:5 lg:pr-20 font-work-sans font-light text-gray-700 slide-to-right">
             <div className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl">
