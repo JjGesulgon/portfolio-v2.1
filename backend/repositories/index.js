@@ -41,7 +41,7 @@ class Repository {
   // Find all items in the table with pagination & search functionality
   async findAllWithPagination(req, res, fields, model){
     const query = []; // array [attributes, <search value>]
-    let limit = 5;   // number of records per page
+    let limit = 6;   // number of records per page
     let offset = 0; // starting record
 
     //create query array
