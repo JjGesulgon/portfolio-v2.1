@@ -58,7 +58,8 @@ export default function ProjectsPage() {
       
       return (
         <Link href={`/projects/${slug}`}>
-          <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3" key={index}>
+          {/* For original tile size lg:w-1/3 */}
+          <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4" key={index}>
             <article className="overflow-hidden rounded-lg hover:bg-blue-500 hover:text-white transition duration-500 mb-8">
               <a href="#">
                 <img alt="Placeholder" className="block h-auto w-full" src={`http://personal-website.test/storage/images/${intro_image}`}/>
@@ -87,6 +88,7 @@ export default function ProjectsPage() {
       return;
     }
     fetchProjects(currentPage, searchName);
+    window.scrollTo(0, 0);
   }
 
   function next() {
@@ -96,21 +98,27 @@ export default function ProjectsPage() {
       return;
     }
     fetchProjects(currentPage, searchName);
+    window.scrollTo(0, 0);
   }
   
   return <Fragment>
+    <div className='grid grid-cols-1 xl:grid-cols-6 overflow-hidden mt-2 md:mb-0 lg:mt-10'>
+      <div className='col-span-3'>
+        <h1 className="text-3xl xl:text-5xl font-work-sans font-light pl-4 xl:pl-14 pb-4">Projects</h1>
+      </div>
+    </div>
     <div className="container my-12 mx-auto px-4 md:px-12">
       <div className="flex flex-wrap -mx-1 lg:-mx-4">
         <input className="appearance-none border rounded w-full py-2 px-3 border-blue-500 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-10 mb-10" id="search" name="search" type="text" placeholder="Search Project" onKeyPress={onKeyUp}/>
         {renderProjectsData()}
       </div>
       <div className="flex justify-end">
-        <button className="bg-transparent mx-2 text-black font-light font-work-sans border border-transparent rounded-lg focus:outline-none" name="prev" id="prev" style={ isDisplay("prev") ? { display:'inline-block'} : {display : 'none'} }   onClick={prev}>
+        <button className="bg-transparent mx-2 p-4 text-black font-light font-work-sans border border-2 border-blue-300 hover:border-4 transition rounded-lg focus:outline-none" name="prev" id="prev" style={ isDisplay("prev") ? { display:'inline-block'} : {display : 'none'} }   onClick={prev}>
           <img src="https://img.icons8.com/office/50/000000/squiggly-arrow.png" style={{transform: `scaleX(-1)`, WebkitTransform: 'scaleX(-1)'}} />
           Prev
         </button>
 
-        <button className="bg-transparent mx-2 text-black font-light font-work-sans border border-transparent rounded-lg focus:outline-none" name="next" id="next" style={ isDisplay("next") ? { display:'inline-block'} : {display : 'none'} } onClick={next}>
+        <button className="bg-transparent mx-2 p-4 text-black font-light font-work-sans border border-2 border-blue-300 hover:border-4 transition rounded-lg focus:outline-none" name="next" id="next" style={ isDisplay("next") ? { display:'inline-block'} : {display : 'none'} } onClick={next}>
           <img src="https://img.icons8.com/office/50/000000/squiggly-arrow.png"/>
           Next
         </button>
