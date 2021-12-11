@@ -102,11 +102,25 @@ class Repository {
   }
 
   // Search record by ID
-  async findOneByID(req, res, fields, model){
-    await model.findByPk(req.body.id, {
+  async findOneBySlug(req, res, fields, model){
+    // await model.findByPk(req.body.id, {
+    //   attributes: fields.attributes,
+    //   include: fields.association,
+    // })
+    // .then(data => {
+    //   res.send(data);
+    // })
+    // .catch(err => {
+    //   res.status(500).send({
+    //     message:
+    //       err.message || "Some error occurred while retrieving data."
+    //   });
+    // });
+
+    await model.findOne({
       attributes: fields.attributes,
       include: fields.association,
-    })
+    }, {where: {slug: req.body.slug}})
     .then(data => {
       res.send(data);
     })

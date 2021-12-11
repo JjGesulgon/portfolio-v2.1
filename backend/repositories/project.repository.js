@@ -37,8 +37,8 @@ class ProjectRepository extends repository {
     new ProjectRepository().findAllWithPagination(req, res, this.fields(), project);
   }
 
-  getProjectByID(req, res){
-    new ProjectRepository().findOneByID(req, res, this.fields(), project);
+  getProjectBySlug(req, res){
+    new ProjectRepository().findOneBySlug(req, res, this.fields(), project);
   }
 }
 module.exports = ProjectRepository;

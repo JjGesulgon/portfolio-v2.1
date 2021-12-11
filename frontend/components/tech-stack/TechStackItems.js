@@ -44,7 +44,7 @@ function TechStack({ techStackItems }) {
  };
 
   return (
-    <div className="overflow-x-auto mx-10 lg:mx-0">
+    <div className="overflow-x-auto mx-10 lg:mx-0 lg:mb-10">
       <div className="min-w-screen flex items-center justify-center font-sans overflow-visible">
         <div className="w-full lg:w-5/6">
           <div className="bg-white lg:shadow-md rounded my-6">

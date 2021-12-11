@@ -57,7 +57,7 @@ export default function ProjectsPage() {
       const {name, type, intro_image, slug} = project;
       
       return (
-        <Link href={`/projects/${slug}`}>
+        <Link href={`/projects/${slug}`} key={index}>
           {/* For original tile size lg:w-1/3 */}
           <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4" key={index}>
             <article className="overflow-hidden rounded-lg hover:bg-blue-500 hover:text-white transition duration-500 mb-8">
@@ -113,13 +113,13 @@ export default function ProjectsPage() {
         {renderProjectsData()}
       </div>
       <div className="flex justify-end">
-        <button className="bg-transparent mx-2 p-4 text-black font-light font-work-sans border border-2 border-blue-300 hover:border-4 transition rounded-lg focus:outline-none" name="prev" id="prev" style={ isDisplay("prev") ? { display:'inline-block'} : {display : 'none'} }   onClick={prev}>
-          <img src="https://img.icons8.com/office/50/000000/squiggly-arrow.png" style={{transform: `scaleX(-1)`, WebkitTransform: 'scaleX(-1)'}} />
+        <button className="bg-transparent mx-2 p-4 text-black font-light font-work-sans border border-2 border-blue-300 hover:bg-blue-500 hover:text-white transition duration-500  rounded-lg focus:outline-none" name="prev" id="prev" style={ isDisplay("prev") ? { display:'inline-block'} : {display : 'none'} }   onClick={prev}>
+          {/* <img src="https://img.icons8.com/office/50/000000/squiggly-arrow.png" style={{transform: `scaleX(-1)`, WebkitTransform: 'scaleX(-1)'}} /> */}
           Prev
         </button>
 
-        <button className="bg-transparent mx-2 p-4 text-black font-light font-work-sans border border-2 border-blue-300 hover:border-4 transition rounded-lg focus:outline-none" name="next" id="next" style={ isDisplay("next") ? { display:'inline-block'} : {display : 'none'} } onClick={next}>
-          <img src="https://img.icons8.com/office/50/000000/squiggly-arrow.png"/>
+        <button className="bg-transparent mx-2 p-4 text-black font-light font-work-sans border border-2 border-blue-300 hover:bg-blue-500 hover:text-white transition duration-500  rounded-lg focus:outline-none" name="next" id="next" style={ isDisplay("next") ? { display:'inline-block'} : {display : 'none'} } onClick={next}>
+          {/* <img src="https://img.icons8.com/office/50/000000/squiggly-arrow.png"/> */}
           Next
         </button>
       </div>

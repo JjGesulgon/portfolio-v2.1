@@ -6,10 +6,10 @@ module.exports = app => {
   // // Create a new Tutorial
   // router.post("/", tutorials.create);
 
-  // Retrieve all Passions
+  // Retrieve all Projects
   router.post("/", projectController.index);
 
-  router.post("/get-by-id", projectController.getByID);
+  router.post("/get-by-id", projectController.getBySlug);
 
   app.use('/api/projects', router);
 };
