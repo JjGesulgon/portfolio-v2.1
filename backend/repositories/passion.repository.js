@@ -10,7 +10,7 @@ class PassionRepository extends repository {
   }
 
   getAll(req, res) {
-    new PassionRepository().findAll(req, res, ['name', 'description', 'image'], passion);
+    new PassionRepository().findAllNoDelete(req, res, ['name', 'description', 'image'], passion);
   }
 }
 

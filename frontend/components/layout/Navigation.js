@@ -66,7 +66,7 @@ function Navigation() {
               </a>
             </Link>
             <Link href='/projects'>
-              <a className={`${router.pathname == "/projects" ? "text-blue-600" : ""} lg:inline-flex lg:w-auto w-full px-3 py-2 md:px-16 md:py-8 rounded text-black font-normal items-center justify-center hover:text-blue-600 text-lg font-work-sans`}>
+              <a className={`${router.pathname.includes("/projects")  ? "text-blue-600" : ""} lg:inline-flex lg:w-auto w-full px-3 py-2 md:px-16 md:py-8 rounded text-black font-normal items-center justify-center hover:text-blue-600 text-lg font-work-sans`}>
                 Projects
               </a>
             </Link>

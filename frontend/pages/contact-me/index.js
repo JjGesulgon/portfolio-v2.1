@@ -50,7 +50,7 @@ export default function ContactMePage({data}) {
         <br></br>
         <br></br>
         <div className="px-12 xl:px-40 mt-20">
-          <div className='text-center font-work-sans text-xl font-light text-justify' dangerouslySetInnerHTML={{ __html: contactData.content}}></div>
+          <div className='text-center font-work-sans text-lg font-light text-justify' dangerouslySetInnerHTML={{ __html: contactData.content}}></div>
           
           <div className="text-base font-normal font-work-sans mt-20">Contact me through my email</div>
           <div className="flex items-center mt-2">
@@ -60,7 +60,7 @@ export default function ContactMePage({data}) {
             <span className="text-base font-light font-work-sans" width="24" height="24">&nbsp; {contactData.email}</span>
           </div>
 
-          <div className="text-base font-normal font-work-sans mt-10">Feel Free to follow me on my socials</div>
+          <div className="text-base font-normal font-work-sans mt-10">Feel free to follow me on my socials</div>
 
           <div className="flex items-center mt-2">
             <div className="pr-2">

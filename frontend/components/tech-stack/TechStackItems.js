@@ -25,23 +25,23 @@ function TechStack({ techStackItems }) {
               <div className="mr-6">
                 <img src={icon_link} alt="Logo"/>
               </div>
-              <span className="font-medium font-work-sans" width="24" height="24">{name}</span>
+              <span className="font-light font-work-sans text-base" width="24" height="24">{name}</span>
             </div>
           </td>
           <td className="py-3 px-6 text-left">
-            <div className="flex items-center font-medium font-work-sans">
+            <div className="flex items-center font-light font-work-sans text-base">
               {experience}
             </div>
           </td>
           <td className="py-3 px-6 text-center">
-            <div className="flex items-center justify-center">
+            <div className="flex items-center justify-center text-base">
               {proficiencyCounter(proficiency)}
             </div>
           </td>
         </tr>
        )
     })
- };
+  };
 
   return (
     <div className="overflow-x-auto mx-10 lg:mx-0 lg:mb-10">
@@ -50,7 +50,7 @@ function TechStack({ techStackItems }) {
           <div className="bg-white lg:shadow-md rounded my-6">
             <table className="min-w-max w-full table-auto">
               <thead>
-                <tr className="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                <tr className="bg-gray-200 text-gray-600 uppercase text-base leading-normal">
                   <th className="py-3 px-6 text-left">Frameworks</th>
                   <th className="py-3 px-6 text-left">Experience</th>
                   <th className="py-3 px-6 text-center">Proficiency</th>

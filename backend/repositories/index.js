@@ -38,6 +38,35 @@ class Repository {
     });
   }
 
+  // Find all items in the table w/o deletedAt column with search functionality 
+  async findAllNoDelete(req, res, attrib, model) {
+    const query = []; // array [attributes, <search value>]
+
+    for (const [key, value] of Object.entries(model.rawAttributes)) {
+      query.push({
+        [key]: {
+          [Op.like]: '%' + req.body.search + '%'
+        }
+      })
+    }
+
+    await model.findAll({
+      attributes: attrib,
+      where: {
+        [Op.or]: query,
+      }
+    })
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving data."
+      });
+    });
+  }
+
   // Find all items in the table with pagination & search functionality
   async findAllWithPagination(req, res, fields, model){
     const query = []; // array [attributes, <search value>]
@@ -101,26 +130,12 @@ class Repository {
       });
   }
 
-  // Search record by ID
+  // Search record by Slug
   async findOneBySlug(req, res, fields, model){
-    // await model.findByPk(req.body.id, {
-    //   attributes: fields.attributes,
-    //   include: fields.association,
-    // })
-    // .then(data => {
-    //   res.send(data);
-    // })
-    // .catch(err => {
-    //   res.status(500).send({
-    //     message:
-    //       err.message || "Some error occurred while retrieving data."
-    //   });
-    // });
-
-    await model.findOne({
+    await model.findOne({where: {slug: req.body.slug},
       attributes: fields.attributes,
       include: fields.association,
-    }, {where: {slug: req.body.slug}})
+    })
     .then(data => {
       res.send(data);
     })

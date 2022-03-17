@@ -1,12 +1,14 @@
 import { useRouter } from 'next/router';
 import { Fragment, useState, useEffect } from 'react';
+import  React from 'react';
 
 function ProjectDetailsPage() {
   const router = useRouter();
   const slug = router.query.slug;
   let projectDetails = {};
+  let samplePageImagesCompilation = [];
   const [project, setProject] = useState([]);
-
+  
   const fetchProjects = async (slug) => {
     const projectQuery = fetch(`${process.env.baseURL}/api/projects/get-by-id`, {
       method: 'POST',
@@ -27,16 +29,175 @@ function ProjectDetailsPage() {
     fetchProjects(slug);
   }, [router.isReady]);
 
+  const renderTechUsed = () => {
+      let techStackItems = project.techStackItems
+      if(techStackItems){
+        return techStackItems.map((stack, index) => {
+          const {name, proficiency} = stack;
+          
+          return (
+            <button className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 mx-2 my-10 rounded-lg" key={name}>
+              {name}
+            </button>
+          );
+        });
+      }
+  };
+
+  const compileSampleImages = (imageArray = []) => {
+    if (imageArray !== []){
+      imageArray.forEach((el) => {
+        let imageUri = `http://personal-website.test/storage/images/${el.image}`;
+        samplePageImagesCompilation.push(imageUri);
+      })
+    }
+    return samplePageImagesCompilation;
+  }
+
+  const Carousel = () => {
+    let images = compileSampleImages(project.samplePageImages);
+    const [currentImage, setCurrentImage] = useState(0);
+    
+    const refs = images.reduce((acc, val, i) => {
+      acc[i] = React.createRef();
+      return acc;
+    }, {});
+  
+    const scrollToImage = (i) => {
+      setCurrentImage(i);
+      refs[i].current.scrollIntoView({
+        //      Defines the transition animation.
+        behavior: "smooth",
+        //      Defines vertical alignment.
+        block: "nearest",
+        //      Defines horizontal alignment.
+        inline: "start",
+      });
+    };
+  
+    const totalImages = images.length;
+  
+    const nextImage = () => {
+      if (currentImage >= totalImages - 1) {
+        scrollToImage(0);
+      } else {
+        scrollToImage(currentImage + 1);
+      }
+    };
+  
+    const previousImage = () => {
+      if (currentImage === 0) {
+        scrollToImage(totalImages - 1);
+      } else {
+        scrollToImage(currentImage - 1);
+      }
+    };
+  
+    const arrowStyle = "absolute bg-blue-700 hover:bg-blue-700 text-white h-24 w-10 rounded-md flex items-center justify-center";
+  
+    const sliderControl = (isLeft) => (
+      <button
+        type="button"
+        onClick={isLeft ? previousImage : nextImage}
+        className={`${arrowStyle} ${isLeft ? "left-2" : "right-2"}`}
+        style={{ top: "40%" }}
+      >
+        <span role="img" aria-label={`${isLeft ? "left" : "right"}`} className="text-xl font-work-sans font-base">
+          {isLeft ? "<" : ">"}
+        </span>
+      </button>
+    );
+  
+    return (
+      <div className="py-12 mx-auto flex w-screen md:w-2/3">
+        <div className="relative w-full">
+          <div className="carousel">
+            {sliderControl(true)}
+            {images.map((img, i) => (
+              <div className="w-full flex-shrink-0" key={img} ref={refs[i]}>
+                <img src={img} className="w-full object-contain" />
+              </div>
+            ))}
+            {sliderControl()}
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   return <Fragment>
-    <div className='grid grid-cols-1 xl:grid-cols-6 overflow-hidden mt-2 md:mb-0 lg:mt-10 relative'>
-      <div className='col-span-3'>
-        <label className="text-lg xl:text-2xl font-work-sans font-light pl-4 xl:pl-14">{project.industry}</label>
-        <br></br>
-        <h1 className="text-5xl xl:text-9xl font-work-sans font-thin pl-4 xl:pl-14 pb-4 pt-4">{project.name}</h1>
+    <div className='xl:mb-52'>
+      <div className='grid grid-cols-1 xl:grid-cols-6 overflow-hidden mt-2 md:mb-0 lg:mt-10 relative'>
+        <div className='col-span-3'>
+          <label className="text-lg md:text-2xl xl:text-2xl font-work-sans font-light pl-4 md:pl-8 xl:pl-14">{project.industry}</label>
+          <br></br>
+          <h1 className="text-5xl md:text-7xl xl:text-9xl font-work-sans font-thin pl-4 xl:pl-14 md:pl-8 pb-4 pt-4 text-blue-500 hover:text-blue-300">
+            <a href={project.live} target="_blank">{project.name}</a>
+          </h1>
+          <div className='text-left font-work-sans xl:text-lg md:text-lg font-light text-justify px-12 md:px-20 2xl:px-40 xl:mb-20 mt-12' dangerouslySetInnerHTML={{ __html: project.overview}}></div>
+        </div>
+      </div>
+
+      <div className='md:mx-16 xl:mx-0 mx-8 mt-8 2xl:mt-0'>
+        <img src={`http://personal-website.test/storage/images/${project.intro_image}`} className='xl:absolute xl:bottom-0 xl:right-0 xl:w-2/4 md:w-auto'/>
       </div>
     </div>
-    <div>
-      <img src={`http://personal-website.test/storage/images/${project.intro_image}`} className='absolute bottom-0 right-0 w-2/4'/>
+
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+
+    <div className='grid grid-cols-1 xl:grid-cols-6 lg:mt-2 xl:mt-8'>
+      <div className='col-span-3 mt-2 md:mb-24 xl:mb-0'>
+        {/* xl:text-5xl  */}
+        <label className="text-3xl md:text-4xl xl:text-5xl font-work-sans text-blue-600 font-extralight xl:pl-14 pl-4 md:pl-8">Concept</label>
+        <div className='text-left font-work-sans xl:text-lg md:text-lg font-light text-justify xl:px-16 xl:py-12 mx-8 mt-4 md:px-12' dangerouslySetInnerHTML={{ __html: project.concept_description}}></div>
+
+        <div className='xl:px-20 pt-8 xl:pt-0 md:mx-16 xl:mx-0 mx-8'>
+          <img src={`http://personal-website.test/storage/images/${project.screen_image}`} className=''/>
+        </div>
+      </div>
+      <div className='col-span-3 lg:mt-2 mt-20'>
+        <label className="text-3xl md:text-4xl xl:text-5xl font-work-sans text-blue-600 font-extralight pl-4 xl:pl-4 md:pl-8">Development</label>
+        <div className='text-left font-work-sans xl:text-lg md:text-lg font-light text-justify xl:px-16 xl:pt-12 xl:pb-8 mx-8 mt-4 mb-10 xl:mb-0 xl:mx-0 xl:mt=0 md:px-12' dangerouslySetInnerHTML={{ __html: project.development_description}}></div>
+        
+        <div className='md:pl-12 xl:pl-0'>
+          <label className="text-lg xl:text-lg font-work-sans xl:pl-16 pl-8">Role: &nbsp;
+            <span> 
+              <label className='text-lg xl:text-lg font-work-sans font-light'>{project.role}</label>
+            </span>
+          </label>
+        </div>
+
+        <div className='md:pl-12 xl:pl-0'>
+          <label className="text-lg xl:text-lg font-work-sans xl:pl-16 pl-8">GitHub Repository: &nbsp;
+            <span> 
+              <a href={project.github_repository} target="_blank">
+                <label className='hover:text-blue-500 text-lg xl:text-lg font-work-sans font-light cursor-pointer'>
+                  Click Here!
+                </label>
+              </a>
+            </span>
+          </label>
+        </div>
+
+        <div className='pl-4 xl:pl-4 xl:pt-12 pt-20 md:pl-8'>
+          <label className="text-3xl md:text-4xl xl:text-5xl font-work-sans font-extralight text-blue-600" >Technology Used</label>
+          <div className='pl-4 md:pl-10'>
+            {renderTechUsed()}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div className='xl:mx-44 mt-20 xl:mt-44 mb-8 md:mx-auto'>
+      <div className='xl:text-center'>
+        <label className="text-3xl md:text-4xl xl:text-5xl pl-4 md:pl-8 font-work-sans font-extralight text-blue-600">Screenshots</label>
+        <div>
+          {Carousel()}
+        </div>
+      </div>
     </div>
   </Fragment>
 }
