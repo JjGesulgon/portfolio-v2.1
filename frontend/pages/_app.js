@@ -8,6 +8,11 @@ function MyApp({ Component, pageProps }) {
     <div>
       <Head>
         <title>Jeysqrd</title>
+        <meta name="description" content="What is up guys, It's JJ Here!!"/>
+        <meta property="og:title" content="JJ Gesulgon"/>
+        <meta property="og:description" content="What is up guys, It's JJ Here!!"/>
+        <meta property="og:url" content="https://jjgesulgon.dev/"/>
+        <meta property="og:type" content="website"/>
         <link rel='icon' href='/favicon.ico' />
         <link rel="preconnect" href="https://fonts.googleapis.com"/>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true"/>

@@ -4,6 +4,7 @@ import AboutMe from '../components/about-me/AboutMe';
 import TechStackContent from '../components/tech-stack/TechStackContent';
 import TechStackItems from '../components/tech-stack/TechStackItems';
 import Passions from '../components/passion/passion';
+// import styled from 'styled-components'
 
 export default function HomePage({data}) {
 
@@ -14,11 +15,25 @@ export default function HomePage({data}) {
 
   const router = useRouter();
 
+  // Define static classes
+  const stylesIndex = {
+    listLeft: ['pl-8 md:pl-auto lg:mt-48 mt-20 pr:5 lg:pr-20 font-work-sans font-light text-gray-700'],
+    listRight: 'h-auto w-full pl-3'
+  }
+
+  // Issue: "window is not defined" error
+  // Solution: Replicate rendering phase to use session
+  let hasAnimated = true;
+  if (typeof window !== "undefined") {
+    window.sessionStorage.setItem('animate', false);
+    hasAnimated = window.sessionStorage.getItem('animate')
+  }
+
   return (
     <div>
       <div className="opacity-100 grid grid-flow-col md:gap-4 lg:gap-2 md:ml-8 -mt-10 overflow-hidden mb-96 md:mb-0 xl:mb-12 2xl:mb-0">
         <div className="flex flex-col-reverse flex-wrap row-span-1 xl:mt-20">
-          <div className="pl-8 md:pl-auto lg:mt-48 mt-20 pr:5 lg:pr-20 font-work-sans font-light text-gray-700 slide-to-right">
+          <div className={`${stylesIndex.listLeft} ${hasAnimated === true ? 'slide-to-right' : ''}`}>
             <div className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl">
               JJ GESULGON
             </div>
@@ -46,7 +61,7 @@ export default function HomePage({data}) {
           </div>
         </div>
         <div className="invisible xl:visible lg:row-span-3">
-          <img src="/assets/undraw_Lost_online.svg" className=" h-auto w-full pl-3 slide-to-left" alt="book lover "/>
+          <img src="/assets/undraw_Lost_online.svg" alt="book lover" className={`${stylesIndex.listRight} ${hasAnimated === true ? 'slide-to-left' : ''}`}/>
         </div>
       </div>
       <br></br>

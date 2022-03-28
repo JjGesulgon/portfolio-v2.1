@@ -1,5 +1,6 @@
 const models = require('./../models');
 const repository = require('./index.js');
+const { Op } = require("sequelize");
 
 const project = models.project
 
@@ -20,7 +21,12 @@ class ProjectRepository extends repository {
         {
           model: models.samplePageImage,
           as: "samplePageImages",
-          attributes: ['image']
+          attributes: ['image'],
+          where: {
+            deleted_at: {
+              [Op.eq]: null
+            }
+          }
         }
       ],
       attributes:  [
