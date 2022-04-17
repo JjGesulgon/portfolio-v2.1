@@ -93,14 +93,14 @@ function ProjectDetailsPage() {
       }
     };
   
-    const arrowStyle = "absolute bg-blue-700 hover:bg-blue-700 text-white h-24 w-10 rounded-md flex items-center justify-center";
+    const arrowStyle = "absolute bg-blue-700 hover:bg-blue-700 text-white -mt-10 w-20 rounded-md flex items-center justify-center";
   
     const sliderControl = (isLeft) => (
       <button
         type="button"
         onClick={isLeft ? previousImage : nextImage}
         className={`${arrowStyle} ${isLeft ? "left-2" : "right-2"}`}
-        style={{ top: "40%" }}
+        // style={{ top: "40%" }}
       >
         <span role="img" aria-label={`${isLeft ? "left" : "right"}`} className="text-xl font-work-sans font-base">
           {isLeft ? "<" : ">"}
