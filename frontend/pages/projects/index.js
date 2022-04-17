@@ -62,7 +62,7 @@ export default function ProjectsPage() {
           <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4" key={index}>
             <article className="overflow-hidden rounded-lg hover:bg-blue-500 hover:text-white transition duration-500 mb-8">
               <a href="#">
-                <img alt="Placeholder" className="block h-auto w-full" src={`http://personal-website.test/storage/images/${intro_image}`}/>
+                <img alt="Placeholder" className="block h-auto w-full" src={`https://jjgesulgon.dev/storage/images/${intro_image}`}/>
               </a>
               <header className="flex items-center justify-between leading-tight p-2 md:p-4">
                 <h1 className="text-lg">

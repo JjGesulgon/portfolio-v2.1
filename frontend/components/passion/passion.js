@@ -7,7 +7,7 @@ function passion({ passions }) {
       return (
         <div className="my-1 w-full md:w-1/3" key={index}>
           <article className="overflow-hidden rounded-lg mb-8">
-            <img alt="Placeholder" className="block h-auto w-auto mx-auto" src={`http://personal-website.test/storage/images/${image}`} />
+            <img alt="Placeholder" className="block h-auto w-auto mx-auto" src={`https://jjgesulgon.dev/storage/images/${image}`} />
             <div className="flex justify-center items-center p-2 md:px-4 md:pt-4">
                 <label className="no-underline text-2xl font-light font-work-sans">{name}</label>
             </div>
