@@ -29,12 +29,19 @@ module.exports = (phase) => {
     }
   }
 
+  const eslint = {
+     // Warning: This allows production builds to successfully complete even if
+    // your project has ESLint errors.
+    ignoreDuringBuilds: true,
+  }
+
   const reactStrictMode = true
 
   // next.config.js object
   return {
     env,
     theme,
+    eslint,
     reactStrictMode
   }
 }
