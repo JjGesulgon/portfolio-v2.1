@@ -6,7 +6,7 @@ function AboutMe({ aboutMe }) {
       </div>
       <div className="flex flex-wrap row-span-1 col-span-3 justify-center mt-10 xl:mt-0">
         <div className='text-center font-work-sans text-base font-light text-justify px-12 xl:px-40' dangerouslySetInnerHTML={{ __html: aboutMe.body}}></div>
-        <img src={`https://jjgesulgon.dev/storage/images/${aboutMe.image}`} className="h-auto w-96 mt-10 px-2 md:px-0 rounded-lg" alt="book lover "/>
+       <img src={`https://admin.jjgesulgon.devulgon.dev/storage/images/${aboutMe.image}`} className="h-auto w-96 mt-10 px-2 md:px-0 rounded-lg" alt="book lover "/>
       </div>
     </div>
   );
