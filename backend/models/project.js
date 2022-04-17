@@ -2,7 +2,7 @@
 const {
   Model
 } = require('sequelize');
-const techstackitem = require('./techstackitem');
+// const techstackitem = require('./techstackitem');
 module.exports = (sequelize, DataTypes) => {
   class project extends Model {
     /**
