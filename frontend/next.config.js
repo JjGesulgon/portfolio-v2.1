@@ -15,7 +15,7 @@ module.exports = (phase) => {
   const env = {
     baseURL: (() => {
       if (isDev) return 'http://localhost:8080'
-      if (isProd) return 'https://www.jjgesulgon.dev'
+      if (isProd) return 'https://jjgesulgon.dev'
       if (isStaging) return 'http://localhost:11639'
       return 'RESTURL_SPEAKERS:not (isDev,isProd && !isStaging,isProd && isStaging)'
     })(),
