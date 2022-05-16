@@ -29,7 +29,7 @@
     "username": "homestead",
     "password": "secret",
     "database": "personal_website",
-    "host": "134.209.104.173",
+    "host": "192.168.10.10",
     "dialect": "mysql",
     "pool": {
       "max": 5,

@@ -5,11 +5,12 @@ const path = require('path');
 const Sequelize = require('sequelize');
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
+const host = process.env.HOST || '192.168.10.10';
 const config = require(__dirname + '/../config/config.json')[env];
 const db = {};
 
 const DBconfig = {
-  host: config.host,
+  host: host, //config.host,
   dialect: config.dialect,
   operatorsAliases: 0,
   define: {
