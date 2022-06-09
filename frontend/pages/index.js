@@ -18,7 +18,7 @@ export default function HomePage({data}) {
   // Define static classes
   const stylesIndex = {
     listLeft: ['pl-8 md:pl-auto lg:mt-48 mt-20 pr:5 lg:pr-20 font-work-sans font-light text-gray-700'],
-    listRight: 'h-auto w-full pl-3'
+    listRight: 'h-auto w-full pl-3 mt-16'
   }
 
   // Issue: "window is not defined" error

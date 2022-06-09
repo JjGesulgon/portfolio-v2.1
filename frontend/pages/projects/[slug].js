@@ -47,7 +47,7 @@ function ProjectDetailsPage() {
   const compileSampleImages = (imageArray = []) => {
     if (imageArray !== []){
       imageArray.forEach((el) => {
-        let imageUri = `https://admin.jjgesulgon.dev/storage/images/${el.image}`;
+        let imageUri = `${process.env.imageURL}/storage/images/${el.image}`;
         samplePageImagesCompilation.push(imageUri);
       })
     }
@@ -139,7 +139,7 @@ function ProjectDetailsPage() {
       </div>
 
       <div className='md:mx-16 xl:mx-0 mx-8 mt-8 2xl:mt-0'>
-       <img src={`https://admin.jjgesulgon.dev/storage/images/${project.intro_image}`} className='xl:absolute xl:bottom-0 xl:right-0 xl:w-2/4 md:w-auto'/>
+       <img src={`${process.env.imageURL}/storage/images/${project.intro_image}`} className='xl:absolute xl:bottom-0 xl:right-0 xl:w-2/4 md:w-auto'/>
       </div>
     </div>
 
@@ -155,7 +155,7 @@ function ProjectDetailsPage() {
         <div className='text-left font-work-sans xl:text-lg md:text-lg font-light text-justify xl:px-16 xl:py-12 mx-8 mt-4 md:px-12' dangerouslySetInnerHTML={{ __html: project.concept_description}}></div>
 
         <div className='xl:px-20 pt-8 xl:pt-0 md:mx-16 xl:mx-0 mx-8'>
-         <img src={`https://admin.jjgesulgon.dev/storage/images/${project.screen_image}`} className=''/>
+         <img src={`${process.env.imageURL}/storage/images/${project.screen_image}`} className=''/>
         </div>
       </div>
       <div className='col-span-3 lg:mt-2 mt-20'>
