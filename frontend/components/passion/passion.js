@@ -26,7 +26,6 @@ function passion({ passions }) {
           {renderTableData()}
         </div>
       </div>
-      {/* <div className='text-center font-work-sans text-base font-light text-justify px-12 xl:px-40' dangerouslySetInnerHTML={{ __html: techStackContent.body}}></div> */}
     </div>
   );
 }
