@@ -93,7 +93,7 @@ function ProjectDetailsPage() {
       }
     };
   
-    const arrowStyle = "absolute bg-blue-700 hover:bg-blue-700 text-white -mt-10 w-20 rounded-md flex items-center justify-center";
+    const arrowStyle = "absolute bg-blue-500 hover:bg-blue-700 text-white -mt-10 w-20 rounded-md flex items-center justify-center";
   
     const sliderControl = (isLeft) => (
       <button
@@ -143,55 +143,65 @@ function ProjectDetailsPage() {
       </div>
     </div>
 
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-
-    <div className='grid grid-cols-1 xl:grid-cols-6 lg:mt-2 xl:mt-8'>
-      <div className='col-span-3 mt-2 md:mb-24 xl:mb-0'>
-        {/* xl:text-5xl  */}
-        <label className="text-3xl md:text-4xl xl:text-5xl font-work-sans text-blue-600 font-extralight xl:pl-14 pl-4 md:pl-8">Concept</label>
-        <div className='text-left font-work-sans xl:text-lg md:text-lg font-light text-justify xl:px-16 xl:py-12 mx-8 mt-4 md:px-12' dangerouslySetInnerHTML={{ __html: project.concept_description}}></div>
-
-        <div className='xl:px-20 pt-8 xl:pt-0 md:mx-16 xl:mx-0 mx-8'>
-         <img src={`${process.env.imageURL}/storage/images/${project.screen_image}`} className=''/>
+    {/* lg:mt-2 xl:mt-8 */}
+    <div className='place-content-center'>
+      <div className='grid grid-cols-1 xl:grid-cols-6 projectDetails'>
+        <div className='col-span-3 mt-24 md:mb-24 xl:mb-0'>
+          <div className='xl:px-20 pt-8 xl:pt-0 md:mx-16 xl:mx-0 mx-8'>
+            <img src={`${process.env.imageURL}/storage/images/${project.screen_image}`} className=''/>
+          </div>
+        </div>
+        <div className='col-span-3 mt-2 md:mb-24 xl:mb-0'>
+          <label className="text-3xl md:text-4xl xl:text-5xl font-work-sans text-blue-600 font-extralight xl:pl-14 pl-4 md:pl-8">Concept</label>
+          <div className='text-left font-work-sans xl:text-lg md:text-lg font-light text-justify xl:px-8 xl:py-12 mx-8 mt-4 md:px-12' dangerouslySetInnerHTML={{ __html: project.concept_description}}></div>
         </div>
       </div>
-      <div className='col-span-3 lg:mt-2 mt-20'>
-        <label className="text-3xl md:text-4xl xl:text-5xl font-work-sans text-blue-600 font-extralight pl-4 xl:pl-4 md:pl-8">Development</label>
-        <div className='text-left font-work-sans xl:text-lg md:text-lg font-light text-justify xl:px-16 xl:pt-12 xl:pb-8 mx-8 mt-4 mb-10 xl:mb-0 xl:mx-0 xl:mt=0 md:px-12' dangerouslySetInnerHTML={{ __html: project.development_description}}></div>
-        
-        <div className='md:pl-12 xl:pl-0'>
-          <label className="text-lg xl:text-lg font-work-sans xl:pl-16 pl-8">Role: &nbsp;
-            <span> 
-              <label className='text-lg xl:text-lg font-work-sans font-light'>{project.role}</label>
-            </span>
-          </label>
+      
+      
+      <div className='grid grid-cols-1 xl:grid-cols-6 lg:mt-4 xl:mt-44'>
+        <div className='col-span-3 mt-2 md:mb-24 xl:mb-0'>
+          <label className="text-3xl md:text-4xl xl:text-5xl font-work-sans text-blue-600 font-extralight pl-14">Development</label>
+          <div className='text-left font-work-sans xl:text-lg md:text-lg font-light text-justify xl:px-16 xl:pt-12 xl:pb-8 mx-8 mt-4 mb-10 xl:mb-0 xl:mx-0 xl:mt=0 md:px-12' dangerouslySetInnerHTML={{ __html: project.development_description}}></div>
         </div>
 
-        <div className='md:pl-12 xl:pl-0'>
-          <label className="text-lg xl:text-lg font-work-sans xl:pl-16 pl-8">GitHub Repository: &nbsp;
-            <span> 
-              <a href={project.github_repository} target="_blank">
-                <label className='hover:text-blue-500 text-lg xl:text-lg font-work-sans font-light cursor-pointer'>
-                  Click Here!
-                </label>
-              </a>
-            </span>
-          </label>
-        </div>
+        <div className='col-span-3 mt-2 md:mb-24 xl:mb-0'>
+          <div className='pl-4 xl:pl-4 md:pl-8'>
+            <label className="text-3xl md:text-4xl xl:text-5xl font-work-sans font-extralight text-blue-600 xl:pl-14 pl-4 md:pl-8" >Frameworks Used</label>
+            <div className='xl:px-12 md:px-16'>
+              {renderTechUsed()}
+            </div>
+          </div>
 
-        <div className='pl-4 xl:pl-4 xl:pt-12 pt-20 md:pl-8'>
-          <label className="text-3xl md:text-4xl xl:text-5xl font-work-sans font-extralight text-blue-600" >Technology Used</label>
-          <div className='pl-4 md:pl-10'>
-            {renderTechUsed()}
+          <div className='pl-4 xl:pl-4 md:pl-8'>
+            <label className="text-3xl md:text-4xl xl:text-5xl font-work-sans font-extralight text-blue-600 xl:pl-14 pl-8 md:pl-8" >Project Details</label>
+            <br></br>
+            <br></br>
+            <div className='md:pl-12 xl:pl-0'>
+              <label className="text-lg xl:text-lg font-work-sans xl:pl-16 pl-8">Role: &nbsp;
+                <span> 
+                  <label className='text-lg xl:text-lg font-work-sans font-light'>{project.role}</label>
+                </span>
+              </label>
+            </div>
+
+            <div className='md:pl-12 xl:pl-0'>
+              <label className="text-lg xl:text-lg font-work-sans xl:pl-16 pl-8">GitHub Repository: &nbsp;
+                <span> 
+                  <a href={project.github_repository} target="_blank">
+                    <label className='hover:text-blue-500 text-lg xl:text-lg font-work-sans font-light cursor-pointer'>
+                      Click Here!
+                    </label>
+                  </a>
+                </span>
+              </label>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    
 
-    <div className='xl:mx-44 mt-20 xl:mt-44 mb-8 md:mx-auto'>
+    <div className='lg:mt-2 xl:mt-36 md:mx-auto'>
       <div className='xl:text-center'>
         <label className="text-3xl md:text-4xl xl:text-5xl pl-4 md:pl-8 font-work-sans font-extralight text-blue-600">Screenshots</label>
         <div>
