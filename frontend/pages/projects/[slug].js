@@ -131,8 +131,8 @@ function ProjectDetailsPage() {
         <div className='col-span-3'>
           <label className="text-lg md:text-2xl xl:text-2xl font-work-sans font-light pl-4 md:pl-8 xl:pl-14">{project.industry}</label>
           <br></br>
-          <h1 className="text-5xl md:text-7xl xl:text-9xl font-work-sans font-thin pl-4 xl:pl-14 md:pl-8 pb-4 pt-4 text-blue-500 hover:text-blue-300">
-            <a href={project.live} target="_blank">{project.name}</a>
+          <h1 className="text-5xl md:text-7xl xl:text-9xl font-work-sans font-thin pl-4 xl:pl-14 md:pl-8 pb-4 pt-4 text-blue-500">
+            {project.name}
           </h1>
           <div className='text-left font-work-sans xl:text-lg md:text-lg font-light text-justify px-12 md:px-20 2xl:px-40 xl:mb-20 mt-12' dangerouslySetInnerHTML={{ __html: project.overview}}></div>
         </div>
@@ -144,7 +144,7 @@ function ProjectDetailsPage() {
     </div>
 
     {/* lg:mt-2 xl:mt-8 */}
-    <div className='place-content-center'>
+    <div className='place-content-center mx-20'>
       <div className='grid grid-cols-1 xl:grid-cols-6 projectDetails'>
         <div className='col-span-3 mt-24 md:mb-24 xl:mb-0'>
           <div className='xl:px-20 pt-8 xl:pt-0 md:mx-16 xl:mx-0 mx-8'>
@@ -160,8 +160,8 @@ function ProjectDetailsPage() {
       
       <div className='grid grid-cols-1 xl:grid-cols-6 lg:mt-4 xl:mt-44'>
         <div className='col-span-3 mt-2 md:mb-24 xl:mb-0'>
-          <label className="text-3xl md:text-4xl xl:text-5xl font-work-sans text-blue-600 font-extralight pl-14">Development</label>
-          <div className='text-left font-work-sans xl:text-lg md:text-lg font-light text-justify xl:px-16 xl:pt-12 xl:pb-8 mx-8 mt-4 mb-10 xl:mb-0 xl:mx-0 xl:mt=0 md:px-12' dangerouslySetInnerHTML={{ __html: project.development_description}}></div>
+          <label className="text-3xl md:text-4xl xl:text-5xl font-work-sans text-blue-600 font-extralight pl-24">Development</label>
+          <div className='text-left font-work-sans xl:text-lg md:text-lg font-light text-justify xl:pl-24 xl:pt-12 xl:pb-8 mx-8 mt-4 mb-10 xl:mb-0 xl:mx-0 xl:mt=0 md:px-12' dangerouslySetInnerHTML={{ __html: project.development_description}}></div>
         </div>
 
         <div className='col-span-3 mt-2 md:mb-24 xl:mb-0'>
@@ -177,9 +177,11 @@ function ProjectDetailsPage() {
             <br></br>
             <br></br>
             <div className='md:pl-12 xl:pl-0'>
-              <label className="text-lg xl:text-lg font-work-sans xl:pl-16 pl-8">Role: &nbsp;
+              <label className="text-lg xl:text-lg font-work-sans xl:pl-16 pl-8">Live Link: &nbsp;
                 <span> 
-                  <label className='text-lg xl:text-lg font-work-sans font-light'>{project.role}</label>
+                  <label className='text-lg xl:text-lg font-work-sans font-light'>
+                    {project.live ? <a href={project.live} target="_blank" className='hover:text-blue-500 text-lg xl:text-lg font-work-sans font-light cursor-pointer'>Click Here!</a> : project.reason_if_unavailable}
+                  </label>
                 </span>
               </label>
             </div>
